@@ -29,14 +29,31 @@ public class StreamFinalOperators {
         minOperator(videogames);
     }
 
+    /**
+     * Counts the number of elements in the given stream and prints the result.
+     *
+     * @param stream the stream of Videogame objects to be counted
+     */
     static void countOperator(Stream<Videogame> stream) {
         System.out.println("Count: " + stream.count());
     }
 
+    /**
+     * Processes each element in the provided stream and prints it using the standard output.
+     *
+     * @param stream the stream of Videogame objects to be processed
+     */
     static void forEachOperator(Stream<Videogame> stream) {
         stream.forEach(System.out::println);
     }
 
+    /**
+     * Evaluates whether all elements in the provided stream of Videogame objects satisfy
+     * a specific condition (in this case, if their totalSold value is greater than 1000),
+     * and prints the result.
+     *
+     * @param stream the stream of Videogame objects to be evaluated
+     */
     static void match(Stream<Videogame> stream) {
 
         //boolean r =  stream.anyMatch(v -> v.getTotalSold() > 1000);

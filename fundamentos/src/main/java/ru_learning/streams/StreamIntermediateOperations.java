@@ -10,6 +10,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/**
+ * This class demonstrates various intermediate operations that can be performed on streams
+ * in the Java Stream API. Each method showcases a specific operation, transforming or
+ * filtering data for further processing.
+ */
 public class StreamIntermediateOperations {
     public static void main(String[] args) {
         Stream<Videogame> videogames = Database.videogames.stream();
@@ -30,10 +35,24 @@ public class StreamIntermediateOperations {
 
     }
 
+    /**
+     * Processes a stream of Videogame objects to determine the count of distinct elements
+     * based on their equality and outputs the result to the console.
+     *
+     * @param stream the Stream of Videogame objects to be processed; distinct elements in the
+     *               stream are determined and their count is output to the console
+     */
     private static void distinctOperator(Stream<Videogame> stream){
         System.out.println(stream.distinct().count());
     }
 
+
+    /**
+     * Limits the number of elements in the given stream to a maximum of 5,
+     * collects the resulting elements into a list, and prints each one to the console.
+     *
+     * @param stream the Stream of Videogame objects to be processed; limits its size to 5 elements
+     */
     private static void limitOperator(Stream<Videogame> stream){
         List<Videogame> result = stream.limit(5).toList();
         result.forEach(System.out::println);
@@ -90,12 +109,16 @@ public class StreamIntermediateOperations {
 
     }
 
+    /**
+     * Modifies the name of each Videogame object in the provided stream to an empty string,
+     * and then prints each object to the console.
+     *
+     * @param stream the Stream of Videogame objects to be processed; each object's name is modified
+     *               and the updated object is printed
+     */
     private static void peakOperator(Stream<Videogame> stream){
-
         //stream.peek(System.out::println).collect(Collectors.toList());
-
         stream.peek(v -> v.setName("")).forEach(System.out::println);
-
     }
 
     private static void sortOperator(Stream<Videogame> stream){
